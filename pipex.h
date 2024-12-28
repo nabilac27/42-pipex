@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 00:10:11 by nchairun          #+#    #+#             */
-/*   Updated: 2024/12/27 00:51:23 by nchairun         ###   ########.fr       */
+/*   Updated: 2024/12/27 00:56:46 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,20 @@
 # define PIPEX_H
 
 # include <unistd.h>    // open, close, read, write, access
-                        // fork, pipe, execve, exit, unlink
+					    // fork, pipe, execve, exit, unlink
+                        // dup, dup2
+# include <fcntl.h>
+# include <stdio.h>     // perror
 # include <stdlib.h>    // malloc, free, exit
 # include <string.h>    // strerror
-# include <stdio.h>     // perror
-# include <sys/types.h> //
+# include <string.h>
+# include <sys/types.h>
 # include <sys/wait.h>  // wait, waitpid
 
-# endif
+#endif
 
-/* 
-    Header files
-    are used in C to declare functions, constants, structures, 
-    and other elements that are shared across multiple source files
+/*
+	Header files
+	are used in C to declare functions, constants, structures,
+	and other elements that are shared across multiple source files
 */
