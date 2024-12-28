@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 00:32:55 by nchairun          #+#    #+#             */
-/*   Updated: 2024/12/28 02:31:53 by nchairun         ###   ########.fr       */
+/*   Updated: 2024/12/28 02:43:18 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,39 +133,39 @@
 */
 
 // pipe example
-// int main()
-// {
-//     int fd[2];          // File descriptors for the pipe
-//     pid_t pid;
-//     char buffer[13];    // Buffer to store the message
+int main()
+{
+    int fd[2];          // File descriptors for the pipe
+    pid_t pid;
+    char buffer[13];    // Buffer to store the message
 
-//     // Create the pipe
-//     if (pipe(fd) == -1)
-//     {
-//         perror("pipe");
-//         exit(EXIT_FAILURE);
-//     }
+    // Create the pipe
+    if (pipe(fd) == -1)
+    {
+        perror("pipe");
+        exit(EXIT_FAILURE);
+    }
 
-//     pid = fork();  // Create a child process
-//     if (pid == -1)
-//     {
-//         perror("fork");
-//         exit(EXIT_FAILURE);
-//     }
+    pid = fork();  // Create a child process
+    if (pid == -1)
+    {
+        perror("fork");
+        exit(EXIT_FAILURE);
+    }
 
-//     if (pid == 0)  // Child process
-//     {
-//         close(fd[0]);  // Close the read end of the pipe (not needed by the child)
-//         write(fd[1], "Hello parent!", 13);  // Write message to the pipe
-//         close(fd[1]);  // Close the write end after writing
-//         exit(EXIT_SUCCESS);  // Exit the child process
-//     }
-//     else  // Parent process
-//     {
-//         close(fd[1]);  // Close the write end of the pipe (not needed by the parent)
-//         read(fd[0], buffer, 13);  // Read message from the pipe
-//         close(fd[0]);  // Close the read end after reading
-//         printf("Message from child: '%s'\n", buffer);  // Print the message
-//         exit(EXIT_SUCCESS);  // Exit the parent process
-//     }
-// }
+    if (pid == 0)  // Child process
+    {
+        close(fd[0]);  // Close the read end of the pipe (not needed by the child)
+        write(fd[1], "Hello parent!", 13);  // Write message to the pipe
+        close(fd[1]);  // Close the write end after writing
+        exit(EXIT_SUCCESS);  // Exit the child process
+    }
+    else  // Parent process
+    {
+        close(fd[1]);  // Close the write end of the pipe (not needed by the parent)
+        read(fd[0], buffer, 13);  // Read message from the pipe
+        close(fd[0]);  // Close the read end after reading
+        printf("Message from child: '%s'\n", buffer);  // Print the message
+        exit(EXIT_SUCCESS);  // Exit the parent process
+    }
+}
