@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 06:51:26 by nchairun          #+#    #+#             */
-/*   Updated: 2024/12/30 07:19:20 by nchairun         ###   ########.fr       */
+/*   Updated: 2024/12/30 07:24:40 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,16 @@
 */
 
 #include "pipex.h"
+
+void    left_pipe_process(char *arg[], char *envp[], int fd[])
+{
+    
+}
+
+void    right_pipe_process(char *arg[], char *envp[], int fd[])
+{
+    
+}
 
 int	main(int argc, char *argv[], char *envp[])
 {
