@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 05:30:19 by nchairun          #+#    #+#             */
-/*   Updated: 2024/12/31 07:06:20 by nchairun         ###   ########.fr       */
+/*   Updated: 2024/12/31 07:13:28 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,13 @@ void	left_child_process(char *argv[], char *envp[], int fd[])
 
 void	right_parent_process(char *argv[], char *envp[], int fd[])
 {
-	int outfile;
+	int	outfile;
 
 	outfile = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
-
 	if (outfile == -1)
 		error_message("Infile is not opened succesfully.");
-
 	dup2(fd[0], STDIN_FILENO);
 	dup2(outfile, STDOUT_FILENO);
 	close(fd[1]);
-
 	execute_cmd(argv[3], envp);
 }

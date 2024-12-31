@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 06:25:48 by nchairun          #+#    #+#             */
-/*   Updated: 2024/12/31 07:07:13 by nchairun         ###   ########.fr       */
+/*   Updated: 2024/12/31 07:14:02 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static int	split_str(char const *str, char c, char **result, int i)
 
 static void	free_str(char **str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
