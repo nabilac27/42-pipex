@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/27 00:10:11 by nchairun          #+#    #+#             */
-/*   Updated: 2024/12/27 00:56:46 by nchairun         ###   ########.fr       */
+/*   Created: 2024/12/31 05:30:05 by nchairun          #+#    #+#             */
+/*   Updated: 2024/12/31 06:33:31 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,27 @@
 
 # define PIPEX_H
 
-# include <unistd.h>    // open, close, read, write, access
-					    // fork, pipe, execve, exit, unlink
-                        // dup, dup2
 # include <fcntl.h>
-# include <stdio.h>     // perror
-# include <stdlib.h>    // malloc, free, exit
-# include <string.h>    // strerror
+# include <stdio.h>
+# include <stdlib.h>
 # include <string.h>
 # include <sys/types.h>
-# include <sys/wait.h>  // wait, waitpid
+# include <sys/wait.h>
+# include <unistd.h>
+
+// pipex.c
+void	left_child_process(char *argv[], char *envp[], int fd[]);
+void	right_parent_process(char *argv[], char *envp[], int fd[]);
+
+// utils.c
+void	execute_cmd(char *cmd, char *envp[]);
+void	error_message(char *message);
+
+// utils_ft_strjoin.c
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strjoin_free(char *s1, char *s2);
+char	*ft_strchr(const char *str, int chr);
+int		ft_strlen(const char *str);
+int		ft_strlcpy(char *dst, const char *src, int dstsize);
 
 #endif
-
-/*
-	Header files
-	are used in C to declare functions, constants, structures,
-	and other elements that are shared across multiple source files
-*/
