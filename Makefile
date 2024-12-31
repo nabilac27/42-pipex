@@ -1,20 +1,25 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefle                                            :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/31 05:36:37 by nchairun          #+#    #+#              #
-#    Updated: 2024/12/31 05:39:14 by nchairun         ###   ########.fr        #
+#    Updated: 2024/12/31 07:17:08 by nchairun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+NAME	= pipex
 
 CC 		= cc
 
 CFLAGS	= -Wall -Wextra -Werror
 
-SRCS	= ./pipex.c
+SRCS	= ./pipex.c				\
+		 ./utils.c				\
+		 ./utils_ft_split.c		\
+		 ./utils_ft_strjoin.c 	\
 
 OBJS	= $(SRCS:.c=.o)
 
