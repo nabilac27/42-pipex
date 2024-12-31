@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 06:25:48 by nchairun          #+#    #+#             */
-/*   Updated: 2024/12/31 07:14:02 by nchairun         ###   ########.fr       */
+/*   Updated: 2024/12/31 07:36:00 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	**ft_split(char const *s, char c)
 	return (result);
 }
 
-char	*ft_split_free(char **split)
+void	ft_split_free(char **split)
 {
 	int	i;
 
@@ -39,7 +39,7 @@ char	*ft_split_free(char **split)
 	free(split);
 }
 
-static int	count_str(char const *str, char c)
+int	count_str(char const *str, char c)
 {
 	int	i;
 	int	count;
@@ -60,7 +60,7 @@ static int	count_str(char const *str, char c)
 	return (count);
 }
 
-static int	split_str(char const *str, char c, char **result, int i)
+int	split_str(char const *str, char c, char **result, int i)
 {
 	int	len;
 
@@ -89,7 +89,7 @@ static int	split_str(char const *str, char c, char **result, int i)
 	return (1);
 }
 
-static void	free_str(char **str)
+void	free_str(char **str)
 {
 	int	i;
 
