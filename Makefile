@@ -6,7 +6,7 @@
 #    By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/31 05:36:37 by nchairun          #+#    #+#              #
-#    Updated: 2024/12/31 07:17:08 by nchairun         ###   ########.fr        #
+#    Updated: 2024/12/31 08:23:56 by nchairun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,11 @@ CC 		= cc
 
 CFLAGS	= -Wall -Wextra -Werror
 
-SRCS	= ./pipex.c				\
-		 ./utils.c				\
-		 ./utils_ft_split.c		\
-		 ./utils_ft_strjoin.c 	\
+SRCS	= ./pipex.c			\
+		  ./pipex_execute.c	\
+		  ./ft_utils.c			\
+		  ./ft_split.c		\
+		  ./ft_strjoin.c 	\
 
 OBJS	= $(SRCS:.c=.o)
 

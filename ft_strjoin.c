@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_ft_strjoin.c                                 :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 06:27:22 by nchairun          #+#    #+#             */
-/*   Updated: 2024/12/31 06:30:27 by nchairun         ###   ########.fr       */
+/*   Updated: 2024/12/31 08:27:13 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (str);
 }
 
-char	*ft_strjoin_free(char *s1, char *s2)
-{
-	char	*temp;
+// char	*ft_strjoin_free(char *s1, char *s2)
+// {
+// 	char	*temp;
 
-	temp = ft_strjoin(s1, s2);
-	free(s1);
-	return (temp);
-}
+// 	temp = ft_strjoin(s1, s2);
+// 	free(s1);
+// 	return (temp);
+// }
 
 char	*ft_strchr(const char *str, int chr)
 {
