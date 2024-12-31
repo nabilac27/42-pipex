@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_utils.c                                      :+:      :+:    :+:   */
+/*   utils_ft_split.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 06:25:48 by nchairun          #+#    #+#             */
-/*   Updated: 2024/12/31 06:26:08 by nchairun         ###   ########.fr       */
+/*   Updated: 2024/12/31 07:07:13 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
-static void	free_str(char **str);
-static int	count_str(char const *str, char c);
-static int	split_str(char const *str, char c, char **result, int i);
 
 char	**ft_split(char const *s, char c)
 {
@@ -26,6 +22,21 @@ char	**ft_split(char const *s, char c)
 	if ((split_str(s, c, result, 0)) == -1)
 		return (0);
 	return (result);
+}
+
+char	*ft_split_free(char **split)
+{
+	int	i;
+
+	if (!split)
+		return ;
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
 }
 
 static int	count_str(char const *str, char c)
@@ -80,24 +91,10 @@ static int	split_str(char const *str, char c, char **result, int i)
 
 static void	free_str(char **str)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (str[i])
 		free(str[i++]);
 	free(str);
 }
-
-// int	main(void)
-// {
-// 	char **str = ft_split("xx12xx34xx56", 'x');
-// 	int i = 0;
-// 	while (str[i] != 0)
-// 	{
-// 		printf("%s\n", str[i]);
-// 		i++;
-// 	}
-// 	free_str(str);
-
-// 	return (0);
-// }
