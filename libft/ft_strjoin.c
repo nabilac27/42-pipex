@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 06:27:22 by nchairun          #+#    #+#             */
-/*   Updated: 2025/01/10 19:26:12 by nchairun         ###   ########.fr       */
+/*   Updated: 2025/01/10 19:34:43 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strjoin(char *s1, char *s2)
 
 char	*ft_strjoin_free(char *s1, char *s2)
 {
-	char *temp;
+	char	*temp;
 
 	temp = ft_strjoin(s1, s2);
 	free(s1);

@@ -6,7 +6,7 @@
 #    By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/31 05:36:37 by nchairun          #+#    #+#              #
-#    Updated: 2025/01/10 19:21:52 by nchairun         ###   ########.fr        #
+#    Updated: 2025/01/10 23:09:40 by nchairun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,16 @@ CC 		= cc
 
 CFLAGS	= -Wall -Wextra -Werror
 
-SRCS	= ./libft/ft_split.c
+SRCS	= ./pipex.c ./utils.c
 
 OBJS	= $(SRCS:.c=.o)
 
-all: $(NAME)
+LIBFT	= ./libft/libft.a
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+all: $(LIBFT) $(NAME)
+
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -36,4 +38,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+$(LIBFT):
+	make -C ./libft
+
+.PHONY: all clean fclean re $(LIBFT)

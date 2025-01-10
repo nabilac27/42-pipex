@@ -2,9 +2,8 @@
 .DS_Store
 
 # Ignore build artifacts
-/build/
-/*.o
-/*.out
+*.o
+*.out
 
 # Ignore user-specific files
 *.log

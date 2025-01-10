@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 06:17:07 by nchairun          #+#    #+#             */
-/*   Updated: 2025/01/10 19:19:01 by nchairun         ###   ########.fr       */
+/*   Updated: 2025/01/10 23:29:40 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@ void	execute_cmd(char *argv, char *envp[])
 	char	**cmd;
 	char	*path;
 
+	path = NULL;
 	if (!argv || !envp)
 		error_message("Error: null argument.");
 	cmd = ft_split(argv, ' ');
-	if (!cmd)
-		error_message("Error: split failed.");
 	if (!cmd[0])
 	{
 		ft_split_free(cmd);
@@ -41,18 +40,11 @@ void	execute_cmd(char *argv, char *envp[])
 	}
 }
 
-char	*get_path(char *cmd, char *envp[])
+char	**get_env_paths(char *envp[])
 {
-	char	**env;
-	char	*whole_path;
 	int		i;
-	int		j;
-	char	*path;
+	char	**env;
 
-	if (!cmd || !envp)
-		return (NULL);
-	if (access(cmd, F_OK | X_OK) == 0)
-		return (ft_strdup(cmd));
 	i = 0;
 	while (envp[i] && ft_strncmp(envp[i], "PATH=", 5) != 0)
 		i++;
@@ -61,27 +53,31 @@ char	*get_path(char *cmd, char *envp[])
 	env = ft_split(envp[i] + 5, ':');
 	if (!env)
 		return (NULL);
+	return (env);
+}
+
+char	*get_path(char *cmd, char *envp[])
+{
+	char	**env;
+	char	*whole_path;
+	char	*path;
+	int		j;
+
+	if (access(cmd, F_OK | X_OK) == 0)
+		return (ft_strdup(cmd));
+	env = get_env_paths(envp);
+	if (!env || !cmd || !envp)
+		return (NULL);
 	j = 0;
 	while (env[j] != NULL)
 	{
 		whole_path = ft_strjoin(env[j], "/");
-		if (!whole_path)
-		{
-			ft_split_free(env);
-			return (NULL);
-		}
+		if (!whole_path || !path)
+			return (ft_split_free(env), NULL);
 		path = ft_strjoin(whole_path, cmd);
 		free(whole_path);
-		if (!path)
-		{
-			ft_split_free(env);
-			return (NULL);
-		}
 		if (access(path, F_OK | X_OK) == 0)
-		{
-			ft_split_free(env);
-			return (path);
-		}
+			return (ft_split_free(env), path);
 		free(path);
 		j++;
 	}
@@ -89,9 +85,16 @@ char	*get_path(char *cmd, char *envp[])
 	return (NULL);
 }
 
-
 void	error_message(char *message)
 {
-	perror(message);
+	if (message)
+	{
+		write(2, message, strlen(message));
+		write(2, "\n", 1);
+	}
+	else
+	{
+		write(2, "Error: Undefined error\n", 23);
+	}
 	exit(EXIT_FAILURE);
 }

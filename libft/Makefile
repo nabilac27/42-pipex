@@ -6,22 +6,22 @@
 #    By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/10 19:29:29 by nchairun          #+#    #+#              #
-#    Updated: 2025/01/10 19:32:14 by nchairun         ###   ########.fr        #
+#    Updated: 2025/01/10 19:34:04 by nchairun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME	= libft.a
 
-CC = cc
+CC		= cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS 	= -Wall -Wextra -Werror
 
-AR = ar rcs
+AR 		= ar rcs
 
-SRCS =	./ft_split.c	./ft_strchr.c	./ft_strdup.c	./ft_strjoin.c	\
-		./ft_strlcpy.c	./ft_strlen.c	./ft_strncmp.c
+SRCS 	=	./ft_split.c	./ft_strchr.c	./ft_strdup.c	./ft_strjoin.c	\
+			./ft_strlcpy.c	./ft_strlen.c	./ft_strncmp.c
 
-OBJS = $(SRCS:.c=.o)
+OBJS 	= $(SRCS:.c=.o)
 
 all: $(NAME)
 
