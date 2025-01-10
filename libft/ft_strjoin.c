@@ -6,11 +6,11 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 06:27:22 by nchairun          #+#    #+#             */
-/*   Updated: 2024/12/31 08:27:13 by nchairun         ###   ########.fr       */
+/*   Updated: 2025/01/10 19:26:12 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -24,56 +24,11 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (str);
 }
 
-// char	*ft_strjoin_free(char *s1, char *s2)
-// {
-// 	char	*temp;
-
-// 	temp = ft_strjoin(s1, s2);
-// 	free(s1);
-// 	return (temp);
-// }
-
-char	*ft_strchr(const char *str, int chr)
+char	*ft_strjoin_free(char *s1, char *s2)
 {
-	int		i;
-	char	char_chr;
+	char *temp;
 
-	i = 0;
-	char_chr = (char)chr;
-	while (str && str[i] != '\0')
-	{
-		if (str[i] == char_chr)
-			return ((char *)&str[i]);
-		i++;
-	}
-	if (char_chr == '\0')
-		return ((char *)&str[i]);
-	return (0);
-}
-
-int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str && str[i] != '\0')
-		i++;
-	return (i);
-}
-
-int	ft_strlcpy(char *dst, const char *src, int dstsize)
-{
-	int	i;
-
-	if (dstsize == 0)
-		return (ft_strlen(src));
-	i = 0;
-	while (dst && src && src[i] != '\0' && i < dstsize - 1)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	if (dst && dstsize > 0)
-		dst[i] = '\0';
-	return (ft_strlen(src));
+	temp = ft_strjoin(s1, s2);
+	free(s1);
+	return (temp);
 }

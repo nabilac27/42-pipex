@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex_execute.c                                    :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 06:17:07 by nchairun          #+#    #+#             */
-/*   Updated: 2024/12/31 08:25:24 by nchairun         ###   ########.fr       */
+/*   Updated: 2025/01/10 19:19:01 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,11 @@ char	*get_path(char *cmd, char *envp[])
 	}
 	ft_split_free(env);
 	return (NULL);
+}
+
+
+void	error_message(char *message)
+{
+	perror(message);
+	exit(EXIT_FAILURE);
 }

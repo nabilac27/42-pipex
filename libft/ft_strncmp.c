@@ -1,27 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/31 08:12:10 by nchairun          #+#    #+#             */
-/*   Updated: 2024/12/31 08:15:23 by nchairun         ###   ########.fr       */
+/*   Created: 2025/01/10 19:19:27 by nchairun          #+#    #+#             */
+/*   Updated: 2025/01/10 19:26:23 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
-
-char	*ft_strdup(const char *s1)
-{
-	char	*ptr_malloc;
-
-	ptr_malloc = malloc(ft_strlen(s1) + 1);
-	if (ptr_malloc == 0)
-		return (0);
-	ft_strlcpy(ptr_malloc, s1, ft_strlen(s1) + 1);
-	return (ptr_malloc);
-}
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, int n)
 {
@@ -36,10 +25,4 @@ int	ft_strncmp(const char *s1, const char *s2, int n)
 	if (n == 0)
 		return (0);
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
-
-void	error_message(char *message)
-{
-	perror(message);
-	exit(EXIT_FAILURE);
 }

@@ -1,16 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_ft_split.c                                   :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 06:25:48 by nchairun          #+#    #+#             */
-/*   Updated: 2024/12/31 07:36:00 by nchairun         ###   ########.fr       */
+/*   Updated: 2025/01/10 19:28:03 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
+
+int		count_str(char const *str, char c);
+int		split_str(char const *str, char c, char **result, int i);
+void	free_str(char **str);
+void	ft_split_free(char **split);
 
 char	**ft_split(char const *s, char c)
 {
