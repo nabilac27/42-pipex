@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 06:17:07 by nchairun          #+#    #+#             */
-/*   Updated: 2025/01/19 03:43:25 by nchairun         ###   ########.fr       */
+/*   Updated: 2025/01/19 04:51:05 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,14 @@ void	execute_cmd(char *argv, char *envp[])
 	if (path == NULL)
 	{
 		ft_split_free(cmd);
-		error_message("Error: no path");
+		perror("Error: no path");
+		exit(127);
 	}
 	if (execve(path, cmd, envp) == -1)
 	{
+		perror("Error: execve()");
 		free(path);
 		ft_split_free(cmd);
-		error_message("Error: execve()");
 	}
 }
 
@@ -93,8 +94,6 @@ void	error_message(char *message)
 		write(2, "\n", 1);
 	}
 	else
-	{
 		write(2, "Error\n", 6);
-	}
-	exit(EXIT_FAILURE);
+	exit(1);
 }
