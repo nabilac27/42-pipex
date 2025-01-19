@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 05:30:19 by nchairun          #+#    #+#             */
-/*   Updated: 2025/01/10 23:14:30 by nchairun         ###   ########.fr       */
+/*   Updated: 2025/01/19 03:41:44 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int	main(int argc, char *argv[], char *envp[])
 	pid_t	pid_fork;
 
 	if (pipe(fd) == -1)
-		error_message("Pipe creation failed.");
+		error_message("Error: pipe()");
 	if (argc == 5)
 	{
 		pid_fork = fork();
 		if (pid_fork == -1)
-			error_message("Fork creation failed.");
+			error_message("Error: fork()");
 		if (pid_fork == 0)
 			left_child_process(argv, envp, fd);
 		else if (pid_fork > 0)
@@ -41,7 +41,7 @@ void	left_child_process(char *argv[], char *envp[], int fd[])
 
 	infile = open(argv[1], O_RDONLY, 0777);
 	if (infile == -1)
-		error_message("Infile is not opened succesfully.");
+		error_message("Error: infile");
 	dup2(fd[1], STDOUT_FILENO);
 	dup2(infile, STDIN_FILENO);
 	close(fd[0]);
@@ -54,7 +54,7 @@ void	right_parent_process(char *argv[], char *envp[], int fd[])
 
 	outfile = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (outfile == -1)
-		error_message("Infile is not opened succesfully.");
+		error_message("Error: outfile");
 	dup2(fd[0], STDIN_FILENO);
 	dup2(outfile, STDOUT_FILENO);
 	close(fd[1]);

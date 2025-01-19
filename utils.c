@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 06:17:07 by nchairun          #+#    #+#             */
-/*   Updated: 2025/01/10 23:29:40 by nchairun         ###   ########.fr       */
+/*   Updated: 2025/01/19 03:43:25 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,24 @@ void	execute_cmd(char *argv, char *envp[])
 
 	path = NULL;
 	if (!argv || !envp)
-		error_message("Error: null argument.");
+		error_message("Error: no arguments/envp");
 	cmd = ft_split(argv, ' ');
 	if (!cmd[0])
 	{
 		ft_split_free(cmd);
-		error_message("Error: empty command.");
+		error_message("Error: no command");
 	}
 	path = get_path(cmd[0], envp);
 	if (path == NULL)
 	{
 		ft_split_free(cmd);
-		error_message("Error: command not found.");
+		error_message("Error: no path");
 	}
 	if (execve(path, cmd, envp) == -1)
 	{
 		free(path);
 		ft_split_free(cmd);
-		error_message("Error: execve failed.");
+		error_message("Error: execve()");
 	}
 }
 
@@ -89,12 +89,12 @@ void	error_message(char *message)
 {
 	if (message)
 	{
-		write(2, message, strlen(message));
+		write(2, message, ft_strlen(message));
 		write(2, "\n", 1);
 	}
 	else
 	{
-		write(2, "Error: Undefined error\n", 23);
+		write(2, "Error\n", 6);
 	}
 	exit(EXIT_FAILURE);
 }
