@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 05:30:05 by nchairun          #+#    #+#             */
-/*   Updated: 2025/01/10 22:57:20 by nchairun         ###   ########.fr       */
+/*   Updated: 2025/01/19 07:07:34 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 # include <unistd.h>
 
 // pipex.c
-void	left_child_process(char *argv[], char *envp[], int fd[]);
-void	right_parent_process(char *argv[], char *envp[], int fd[]);
+void	left_process(char *argv[], char *envp[], int fd[], int infile);
+void	right_process(char *argv[], char *envp[], int fd[], int outfile);
 
 // utils.c
 void	execute_cmd(char *cmd, char *envp[]);
