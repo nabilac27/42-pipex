@@ -1,4 +1,4 @@
-## **pipex**
+# **pipex**
 
 The **pipex** project is a C program that simulates a shell pipeline. 
 
