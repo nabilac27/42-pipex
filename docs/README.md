@@ -1,7 +1,9 @@
 ## **pipex**
 
 The **pipex** project is a C program that simulates a shell pipeline. 
+
 It uses pipes to connect commands, handles file redirection, and manages multiple processes. 
+
 The program takes two input files and a set of commands, then pipes the commands together and outputs the result.
 
 
