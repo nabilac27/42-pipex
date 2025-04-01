@@ -1,4 +1,4 @@
-## **pipex** - Custom Implementation
+## **pipex**
 
 The **pipex** project is a C program that simulates a shell pipeline. It uses pipes and process management to execute commands, handle file redirection, and facilitate inter-process communication (IPC).
 
