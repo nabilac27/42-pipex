@@ -26,7 +26,7 @@ To compile the `pipex` project, run the following command:
 $ make
 ```
 
-#### **Run the program:**:
+#### **Run the program**:
 To run the program, use the following format:
 ```bash
 $ ./pipex file1 cmd1 cmd2 file2
@@ -36,12 +36,12 @@ $ ./pipex file1 cmd1 cmd2 file2
 - cmd2 is the second command to execute.
 - file2 is the output file where the result of the pipeline will be written.
 
-#### **Example:**:
+#### **Example**:
 ```bash
 $ ./pipex input.txt "cat" "grep keyword" output.txt
 ```
 
-#### **Rebuild:**:
+#### **Rebuild**:
 To rebuild the project from scratch (after using fclean), run:
 ```bash
 $ make re
