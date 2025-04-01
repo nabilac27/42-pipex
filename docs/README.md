@@ -7,7 +7,7 @@ It uses pipes to connect commands, handles file redirection, and manages multipl
 The program takes two input files and a set of commands, then pipes the commands together and outputs the result.
 
 
-### **Key Concepts**
+## **Key Concepts**
 
 - **Pipes**: Used to pass the output of one command as input to another.
   
@@ -19,7 +19,7 @@ The program takes two input files and a set of commands, then pipes the commands
 
 - **Error Handling**: Displays an error message and exits the program if something goes wrong (e.g., invalid commands or failure to create pipes).
 
-### How to Run
+## How to Run
 #### **Make the project**:
 To compile the `pipex` project, run the following command:
 ```bash
@@ -49,7 +49,7 @@ $ make re
 
 ---
 
-### **Functions Overview**
+## **Functions Overview**
 
 | **Function**                            | **Description** |
 |-----------------------------------------|-----------------|
