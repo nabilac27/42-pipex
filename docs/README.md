@@ -19,6 +19,19 @@ The program takes two input files and a set of commands, then pipes the commands
 
 - **Error Handling**: Displays an error message and exits the program if something goes wrong (e.g., invalid commands or failure to create pipes).
 
+
+## **Functions Overview**
+
+| **Function**                            | **Description** |
+|-----------------------------------------|-----------------|
+| `left_process(char *argv[], char *envp[], int fd[])` | Executes the first command in the pipeline and manages its redirection. |
+| `right_process(char *argv[], char *envp[], int fd[])` | Executes the second command in the pipeline and manages its redirection. |
+| `execute_cmd(char *cmd, char *envp[])`  | Finds and runs a command by checking the system's `PATH`. |
+| `get_path(char *cmd, char *envp[])`     | Finds the full path of a command in the `PATH` directories. |
+| `error_message(char *message)`          | Displays an error message and exits the program if something goes wrong. |
+
+---
+
 ## How to Run
 #### **Make the project**:
 To compile the `pipex` project, run the following command:
@@ -46,15 +59,3 @@ To rebuild the project from scratch (after using fclean), run:
 ```bash
 $ make re
 ```
-
----
-
-## **Functions Overview**
-
-| **Function**                            | **Description** |
-|-----------------------------------------|-----------------|
-| `left_process(char *argv[], char *envp[], int fd[])` | Executes the first command in the pipeline and manages its redirection. |
-| `right_process(char *argv[], char *envp[], int fd[])` | Executes the second command in the pipeline and manages its redirection. |
-| `execute_cmd(char *cmd, char *envp[])`  | Finds and runs a command by checking the system's `PATH`. |
-| `get_path(char *cmd, char *envp[])`     | Finds the full path of a command in the `PATH` directories. |
-| `error_message(char *message)`          | Displays an error message and exits the program if something goes wrong. |
