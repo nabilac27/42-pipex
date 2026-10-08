@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 06:17:07 by nchairun          #+#    #+#             */
-/*   Updated: 2026/10/08 02:49:15 by nchairun         ###   ########.fr       */
+/*   Updated: 2026/10/08 02:59:55 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	*get_path(char *cmd, char *envp[])
 	while (env[j] != NULL)
 	{
 		whole_path = ft_strjoin(env[j], "/");
-		if (!whole_path || !path)
+		if (!whole_path)
 			return (ft_split_free(env), NULL);
 		path = ft_strjoin(whole_path, cmd);
 		free(whole_path);
