@@ -6,18 +6,15 @@
 #    By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/31 05:36:37 by nchairun          #+#    #+#              #
-#    Updated: 2026/10/08 02:51:20 by nchairun         ###   ########.fr        #
+#    Updated: 2026/10/08 03:04:18 by nchairun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
 NAME		= pipex
-
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -Iinclude
 
-SRCS		= src/main.c \
-			  src/utils.c
+SRCS		= src/main.c src/utils.c src/process.c
 
 OBJ_DIR		= obj
 OBJS		= $(SRCS:src/%.c=$(OBJ_DIR)/%.o)
@@ -25,6 +22,7 @@ OBJS		= $(SRCS:src/%.c=$(OBJ_DIR)/%.o)
 LIBFT_DIR	= include/libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 
+.SILENT:
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
