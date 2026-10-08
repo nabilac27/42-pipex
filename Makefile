@@ -6,39 +6,45 @@
 #    By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/31 05:36:37 by nchairun          #+#    #+#              #
-#    Updated: 2025/01/19 02:09:42 by nchairun         ###   ########.fr        #
+#    Updated: 2026/10/08 02:51:20 by nchairun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= pipex
 
-CC 		= cc
+NAME		= pipex
 
-CFLAGS	= -Wall -Wextra -Werror
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror -Iinclude
 
-SRCS	= ./pipex.c ./utils.c
+SRCS		= src/main.c \
+			  src/utils.c
 
-OBJS	= $(SRCS:.c=.o)
+OBJ_DIR		= obj
+OBJS		= $(SRCS:src/%.c=$(OBJ_DIR)/%.o)
 
-LIBFT	= ./libft/libft.a
+LIBFT_DIR	= include/libft
+LIBFT		= $(LIBFT_DIR)/libft.a
 
-all: $(LIBFT) $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
-%.o: %.c
+$(OBJ_DIR)/%.o: src/%.c
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
+
 clean:
-	rm -f $(OBJS)
- 
+	rm -rf $(OBJ_DIR)
+	$(MAKE) -C $(LIBFT_DIR) clean
+
 fclean: clean
 	rm -f $(NAME)
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-$(LIBFT):
-	make -C ./libft
-
-.PHONY: all clean fclean re $(LIBFT)
+.PHONY: all clean fclean re

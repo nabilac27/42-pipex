@@ -6,11 +6,11 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 05:30:19 by nchairun          #+#    #+#             */
-/*   Updated: 2025/01/19 10:41:05 by nchairun         ###   ########.fr       */
+/*   Updated: 2026/10/08 02:45:30 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../include/pipex.h"
 
 int	main(int argc, char *argv[], char *envp[])
 {
