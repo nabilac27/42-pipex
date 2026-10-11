@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 06:17:07 by nchairun          #+#    #+#             */
-/*   Updated: 2026/10/08 02:59:55 by nchairun         ###   ########.fr       */
+/*   Updated: 2026/10/11 07:26:02 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	execute_cmd(char *argv, char *envp[])
 		perror("Error: execve()");
 		free(path);
 		ft_split_free(cmd);
+		exit(126);
 	}
 }
 
